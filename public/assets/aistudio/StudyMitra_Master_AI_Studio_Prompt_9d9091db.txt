@@ -1,0 +1,198 @@
+[SYSTEM INSTRUCTION FOR GOOGLE AI STUDIO BUILDER]
+[MODE: LOW_TOKEN_EFFICIENCY] Zero conversational filler, no greetings, no summaries. Build a complete, production-ready, mobile-first React + TypeScript + Tailwind CSS + Lucide Icons single-page application for "StudyMitra" (Classes 9, 10, 11, 12 — CBSE & GSEB). All state must persist in localStorage / IndexedDB (Dexie-compatible pattern) with clean hooks ready for Supabase integration.
+
+===========================================================================
+1. GLOBAL DESIGN PHILOSOPHY: ORION STORE + GOOGLE M3 EXPRESSIVE + GEMINI CUES
+===========================================================================
+- Typography: Load 'Space Grotesk' and 'Plus Jakarta Sans' / 'Google Sans Flex' style variable weights from Google Fonts. Use ultra-bold geometric headings paired with thin, expressive numeric counters (like "109 DAYS LEFT" or currency balances).
+- Containers & Geometry: Strictly follow the Material 3 Expressive Bento Grid. No boring flat uniform lists. Use asymmetrical layout containers (tall, wide, square) with 24px to 28px border-radius (`rounded-[26px]` or `rounded-3xl`).
+- Organic Watermark Blobs: Every M3E Bento card (like in Orion Store Settings) MUST contain a subtle, low-opacity organic abstract blob/wave SVG shape anchored in its bottom-right corner and a 12-point scalloped "cookie" icon badge in its top-left corner.
+- Surfaces & Palettes:
+  * Light/Pastel Mode ("Orion Pastel"): Warm Cream canvas (`#FAF8F5`) with semantic low-saturation pastel cards: Lavender (`#E8DEF8`), Mint (`#D3F9D8`), Blush Pink (`#FFD8E4`), Sky Blue (`#D0E4FF`), Pale Amber (`#FFF0C2`), Slate Blue (`#D8E2FF`).
+  * Dark Mode ("Orion Charcoal"): Deep Charcoal (`#141416`) with tonal pastel-tinted dark containers (`#1E1B26`, `#16241C`, `#281A20`, `#17222E`).
+  * True OLED Mode ("Gemini Void"): `#000000` pure black background with glowing Gemini Blue-to-White/Purple aura borders.
+  * Additional Unlockable Themes: JJK Cursed Purple, Bleach Soul Reaper, Demon Slayer Hinokami, Kronos Telemetry.
+- ZERO NATIVE DROPDOWNS MANDATE: NEVER use HTML `<select>` or native Android gray dropdown boxes anywhere in the app. Every selection MUST use on-screen Interactive Selection Chips, Segmented Pill Groups, or Bento Choice Tiles.
+- Top Global Telemetry Header (Visible on Main Views):
+  * Left: Scalloped App Logo + Current Class Pill (`Class 10`).
+  * Right: Live XP Pill (`⚛️ Urja` — glowing capsule with a pulsing 3-ring atomic orbit SVG + numeric count) AND Live Currency Pill (`🪙 Sikka` — matte-black & gold coin icon inside a scalloped badge that performs a 3D vertical Y-axis spin animation whenever Sikka is earned or spent).
+- Adaptive Floating Pill Navigation Dock:
+  * Suspended slightly above the bottom screen edge in portrait mode (`rounded-full`, glassmorphic backdrop blur), transitioning automatically into a left-side vertical navigation rail on landscape/tablet screens.
+  * 5 Core Destinations:
+    1. `Storefront` (`/home` - Main Study Dashboard)
+    2. `Syllabus & Mocks` (`/hub` - Tracker & Exam Hall)
+    3. `Friends Zone` (`/friends` - Codename P2P Hub & 1v1 Arena)
+    4. `Bazaar` (`/bazaar` - Sikka Cosmetics & Avatar Store)
+    5. `Mitra Pass` (`/profile` - 3D Card, Ranks & Draggable Settings)
+
+===========================================================================
+2. HARD-LOCK "BLANK SCREEN" APP UPDATE KILL-SWITCH (WHATSAPP-STYLE GATE)
+===========================================================================
+- State Variable: `isUpdateRequired` (default `false`, with a developer toggle in "Mitra Xtra" settings to test it immediately).
+- Behavior: When `isUpdateRequired === true`, unmount the entire app router and render a 100% un-bypassable full-screen lock screen (identical to WhatsApp's expired version screen).
+- Visuals: Deep charcoal/OLED blank canvas, pulsing scalloped warning icon, title: "This version of StudyMitra has expired", subtitle: "Please update to the latest build to continue your streak and sync your Urja."
+- 3 Full-Width 2-Line M3E Action Pill Buttons (Scalloped badge on left + micro-label top + bold title bottom):
+  1. `DIRECT ENGINE` / `⚡ Auto-Download & Install APK` (triggers simulated progress bar download & instant version bump).
+  2. `OPEN SOURCE REPO` / `🌐 Download from GitHub Releases`
+  3. `FOSS REPOSITORY` / `📦 Get Latest on F-Droid`
+
+===========================================================================
+3. PAGE 1: AUTH & SECURE GATE (`/auth`)
+===========================================================================
+- Top Mode Switcher: Segmented M3 capsule toggle: `[ Login ]` | `[ Create New Account ]`. (NO instant demo bypass button).
+- Corner 3D Morphing Object: In the top-right corner of the card/header, render an interactive 3D-styled CSS/SVG geometric polyhedron/robotics core that continuously rotates. Whenever an input step completes or mode switches, animate the object shrinking/imploding out and morphing a new 3D geometric object into the background.
+- Input Fields (Styled as M3E rounded-2xl tonal capsules):
+  * `Real Name` (Helper hint: "Visible ONLY to accepted Friends").
+  * `Public Username` (Helper hint: "Visible to non-friends & leaderboards").
+  * `Gmail Address`
+  * `Password`
+- Interactive Actions:
+  * Primary Button: `✉️ Verify Gmail & Continue` (In `[ Create New Account ]` mode) or `🚀 Login to StudyMitra` (In `[ Login ]` mode).
+  * Secondary Links/Buttons below: `🔑 Forgot Password?` (opens slide-up recovery bottom sheet) and a full-width M3E pill button: `G Sign in with Google Account`.
+- 3-Second Supabase Verification Flow:
+  * When the user taps `Verify Gmail & Continue`, show a sleek 3-second M3E loading animation ("Dispatching verification link via Supabase Auth...").
+  * After 3 seconds, transition the card into the Verification Waiting State: "Link sent to your Gmail! Click the verification link in your inbox." Include a simulated `[ ✉️ Simulate Clicking Gmail Verification Link ]` button for testing inside the preview.
+  * Once clicked, display an emerald-green confirmation banner: "✅ Gmail Verified! Now you can Login" and automatically switch the tab to `[ Login ]`.
+
+===========================================================================
+4. PAGE 2: IMMEDIATE POST-LOGIN ONBOARDING (`/onboarding`)
+===========================================================================
+- Triggered immediately after first login. All inputs use On-Screen Selection Chips, Pill Sliders, and Bento Tiles (ZERO gray box dropdowns).
+- Background Animation: As the user selects their Class and Subjects, render floating mathematical & physics formulas (`E = mc²`, `sin²θ + cos²θ = 1`, `F = ma`, `V = IR`, `∫ x dx`) drifting and rotating softly across the background canvas.
+- Strict Step Sequence:
+  * Step 1: UI & Look Setup (First Priority): Choose Base Surface (`Orion Pastel Light`, `Charcoal Dark`, `True OLED Black`) + tap circular color palette swatches + font density.
+  * Step 2: Class, Board & Identity: Tap Scalloped Bento Tiles for `Class 9`, `Class 10`, `Class 11`, or `Class 12` + `CBSE` or `GSEB` + `Boy` or `Girl` + `School Name` input.
+  * Step 3: Current Marks, Days Left & Weak Zones: Interactive M3E pill sliders for baseline subject scores (e.g., Maths 18/80, Science 41.5/80, SST, English, Gujarati, IT) + Days left until target exam (e.g., `109 Days`) + tap-to-flag Weak Chapters.
+  * Step 4: Ambition, Stream & Interests: Select Stream/Goal (`PCM`, `PCB`, `Commerce`, `Arts`, `Robotics Engineering`), Dream College (`LDCE Ahmedabad`, `IIT/NIT`, etc.), Regional Language (`Gujarati`, `Hinglish`, `English`), and Interests (`Robotics`, `Cricket`, `Gaming`, `Music`).
+- Smart Routine Generator Output: On the final step, calculate and preview a personalized, realistic **Daily Achievable Routine** uniting their current marks, days remaining, and Dream Goal so the target feels 100% achievable. Also auto-assign their unique Friend Codename (format: `adjective-noun` like `lemon-ball` or `neon-falcon`, editable once).
+
+===========================================================================
+5. PAGE 3: STOREFRONT HOME HUB (`/home`) — DOCK TAB 1
+===========================================================================
+- Persistent Rounded Search Header: Anchored at the top with capsule ends, instant chapter/concept search, quick filter button, and live `⚛️ Urja` & `🪙 Sikka` pills.
+- Horizontal Category Pill Bar: Scrollable capsule tags (`All`, `Class 10` [or active class], `🔥 High ROI`, `⚠️ Weak Zones`, `📐 Picture/SVG`, `🧩 Case-Based`, plus quick class switcher pills `9th`, `11th`, `12th`).
+- Multi-Peek Hero Carousel (Google M3 Expressive Style):
+  * Card 1: Adaptive Goal & Countdown Banner (`109 DAYS LEFT` in bold Google Sans Flex numerals, Dream Goal badge `🎯 LDCE Robotics`, Personalized Daily Routine status, and 3-State Energy Selector: `⚡ Full Power` | `🔋 Low Energy` | `🛡️ 15m Survival`).
+  * Card 2: Daily Tasks for `🪙 Sikka` & `⚛️ Urja` ("Complete 2 Checkpoints: +25 Sikka", "Fix 1 Weak Zone: +40 Urja").
+- Segmented Subject Bento Grid:
+  * Elevated pastel/tonal M3E cards (`rounded-3xl` with organic watermark blobs) for **Mathematics, Science, Social Science, English, Gujarati / Hindi, Computer / IT**.
+  * Each card shows CBSE/GSEB weightage, accuracy %, a Gemini glowing pill progress bar, and a rapid `▶ Start Learning` pill button.
+- Slide-Up Chapter Details Bottom Sheet (Orion "App Details" Architecture):
+  * Tapping any subject/chapter slides up an interactive bottom sheet with a top drag-handle:
+    1. Hero Branding: Scalloped icon, Chapter Title, and CBSE Blueprint tags.
+    2. Quick Stats Row: Horizontal container with vertical dividers showing `Board Weightage (Marks)`, `Competency %`, and `Past Accuracy`.
+    3. Inline SVG Diagram Carousel: Side-scrolling pinch-to-zoom preview of AI-generated SVG diagrams (ray diagrams, circuits, geometry).
+    4. Action Matrix: Full-width 2-line M3E capsule buttons:
+       - `CONCEPT STAGE` / `▶ Start Interactive Learning` (Launches `/learn`)
+       - `ORAL EXAMINER` / `🎙️ Enter Voice Viva Room` (Launches `/viva`)
+       - `DIAGNOSTIC SCAN` / `🔍 Run Mistake Autopsy Report` (Replaces VirusTotal scan: overlays past speed-click errors and weak sub-topics).
+    5. Expandable Accordions: Markdown-styled collapsible blocks for `Formula Cheat-Sheet`, `2026-27 CBSE Question Pattern`, and `Mistake Changelog`.
+
+===========================================================================
+6. PAGE 4: INTERACTIVE LEARNING STAGE (`/learn`) & 3–4 MIN CHECKPOINT ENGINE
+===========================================================================
+- Purpose: Strictly for learning new chapters and clearing concepts interactively in every possible way (NO punitive grading on teaching cards).
+- Top Telemetry Header (Bottom Dock Auto-Hides):
+  * Left: Red/Tonal `🛑 Leave Topic` button.
+  * Center/Right: Live Unbanked `⚛️ Urja` Counter at the top + a sleek M3E **Topic Time & Segment Progress Bar** directly underneath it showing real-time progress toward the next **3–4 Minute Checkpoint** (include a `[ ⏩ Fast-Forward to Checkpoint ]` button for quick testing).
+- Multi-Modal Concept & Teaching Stream:
+  * 1. Interactive Teaching MCQs (No Wrong Answers): Presenting 4 conceptual angles or "What happens if..." options. Tapping ANY option reveals a rich explanation card showing *why* that angle works and how it connects to the core rule.
+  * 2. Visual & Diagram Cards: Inline interactive SVG diagrams, step-by-step flowcharts, and picture-based explanations with pinch-to-zoom.
+  * 3. Softly Woven Life, News & Shield Cards: Naturally interleave bite-sized **Daily Science/Tech News**, **Relatable Gujarati/Desi Study Memes**, and **Soft Mindset / Safety Insights** (for Girls: *Project Athena* confidence, STEM scholarships, cyber safety, or low-energy comfort tips; for Boys: *Mindset Shield* dopamine focus resets and discipline) right inside the learning flow—never as a jarring separate lecture.
+- THE 3–4 MINUTE CHECKPOINT PAGE (`Leave or Continue` Gate):
+  * Triggered automatically every 3–4 minutes of learning (after explaining a concept + asking 1 normal concept-check question) AND before starting a new sub-topic.
+  * Visuals: Celebration M3E card banking the collected `⚛️ Urja` and `🪙 Sikka` into the user's permanent balance!
+  * AI Note Prompt: Friendly chat bubble reminding the student: *"Take quick notes of this concept in your notebook now, or tap 'Remind Me Next Time' so I'll show a summary right when you press Start Learning again!"*
+  * 2 Primary Choices: `[ ✅ Bank Urja & Continue to Next Segment ]` or `[ 🏠 Bank Urja & Leave Safely ]`.
+- EARLY EXIT PENALTY SCREEN (Leaving Before the 3–4 Min Checkpoint):
+  * If the user taps `🛑 Leave Topic` (or simulates closing/backing out) *before* reaching the current 3–4 minute checkpoint:
+  * Trigger a full-screen high-impact warning/penalty animation: **"⚠️ Checkpoint Incomplete! Unbanked Urja Lost!"**
+  * Show the unbanked `⚛️ Urja` shattering/draining to zero and inform the student: **"You will respawn from your LAST saved 3–4 min Checkpoint (not from zero)."** Provide `[ ↩️ Resume Segment Now ]` and `[ 💔 Lose Unbanked Urja & Exit ]`.
+
+===========================================================================
+7. PAGE 5: VOICE-ONLY VIVA EXAMINER ROOM (`/viva`)
+===========================================================================
+- Pure OLED black canvas (`#000000`) featuring the **Gemini Dynamic Concentric Blue Soundwave Rings & Glowing Arcs** that pulse and scale to microphone/voice activity.
+- AI Oral Examiner reads CBSE competency questions aloud (using Web Speech API `speechSynthesis` + simulated fallback).
+- Live speech-to-text transcript box + **NCERT Keyword Checklist Pills** that light up emerald green as the student speaks required technical keywords, awarding bonus `⚛️ Urja`.
+
+===========================================================================
+8. PAGE 6: SYLLABUS MANAGER & MOCK EXAM HALL (`/hub`) — DOCK TAB 2
+===========================================================================
+- Fixed Top Sub-Tabs (Orion "My Apps" Layout): `[ 📚 Syllabus Tracker ]` | `[ 🏆 Mock Exam Hall ]` (Friends & 1v1 are strictly separated into Dock Tab 3).
+- Sub-Tab 1: Syllabus Tracker:
+  * Dynamic Bulk Action Banner: Slides in when weak topics are detected (`"⚡ Revise All 4 Pending Weak Zones (+80 Urja)"`).
+  * Gesture-Driven Chapter Stack (Include both touch-swipe and quick-tap action icons):
+    - **Swipe Left (Red Action Deck):** Reset Topic Checkpoint & Clear Mistake Memory.
+    - **Swipe Right (Mint Action Deck):** Pin Chapter to Daily High-ROI Routine or Mute Low-ROI Alerts.
+    - **3-Dot Overflow Menu:** View CBSE 2026-27 Blueprint, Generate JIT Question Pack (MCQs, Case-Based, Assertion-Reason, Q&A saved locally), or Export Notes.
+- Sub-Tab 2: Mock Exam Hall:
+  * **15-Minute CBSE Reading Time Simulator:** Locks option clicking for the first 15 minutes (with a skip button for testing) while allowing students to highlight questions and tag `[ Easy ]`, `[ Medium ]`, `[ Tough ]`.
+  * **60/25/15 Ghost Mistake Paper Mixer:** Generates custom mock tests mixing 60% current chapter, 25% past chapters, and 15% past mistakes.
+
+===========================================================================
+9. PAGE 7: SEPARATE FRIENDS ZONE & P2P CHAT/BATTLE HUB (`/friends`) — DOCK TAB 3
+===========================================================================
+- Top Header Bar: Displays user's own Codename pill (`Your Codename: lemon-ball` with 1-tap copy) and a prominent M3E button: **`➕ Add Friend`**.
+- `➕ Add Friend` Popup Modal:
+  * Clean M3E dialog containing an input box to enter a friend's unique **Codename** (example placeholder: `e.g., lemon-ball, cyber-tiger`).
+  * Explain privacy clearly: *"Non-friends only see your Public Username. Once accepted via Codename, friends can see your Real Name!"*
+  * Stores lightweight Codename lookup in the server/local directory table.
+- Friend List & P2P Direct Chat + Image Sharing (Zero Server Storage):
+  * Displays accepted Friends showing both their `@username` AND their `Real Name`, current Rank Badge, and active Streak Flame.
+  * Tapping a friend opens a **Direct P2P Chat & Media Drawer** (simulated WebRTC DataChannel / local device-to-device state with a clear badge: `🔒 P2P Direct: Messages & Pictures never touch any server`).
+  * Supports sending text messages, attaching/previewing **Pictures** (for sharing handwritten notes/doubts), and a **`⚔️ Challenge to 1v1 Battle`** button.
+- 1v1 Live Quiz Battle Arena:
+  * **Tug-of-War Live Bar** at the top of the screen shifting left/right as each player answers.
+  * **10-Battle Padlocked Voice & Video Bubbles:** Shows lock counter (`🔒 Complete 10 Battles together to unlock P2P Voice & Video Call`).
+
+===========================================================================
+10. PAGE 8: THE `BAZAAR` — `🪙 SIKKA` REWARD STORE (`/bazaar`) — DOCK TAB 4
+===========================================================================
+- Header: Store title **`Bazaar`** in bold `Google Sans Flex` typography, live spinning **`🪙 Sikka`** balance pill, and a **`🎁 Daily Simple Tasks`** drawer button (claim Sikka for completing a 3–4m checkpoint, maintaining streak, or reviewing 1 formula).
+- Live Upper-Body Avatar & Card Preview Stage: Anchored at the top so the student sees every item equipped in real time.
+- Horizontal Category Pill Bar:
+  1. `🧥 Upper-Body Drip` (Strictly upper-body clothing & accessories since only the upper body is framed in the avatar: Chains, Gold Lockets, Oversized Hoodies, Trench Coats, Denim Jackets, Cyber Visors, Glasses, Caps).
+  2. `⭕ Avatar Rings` (Animated Neon Pulse Ring, Scalloped Gold Cookie Frame, Plasma Orbit, Conqueror Fire Halo).
+  3. `🪪 Card Skins & Stickers` (Custom background shaders, holographic foil borders, and draggable badges for the back of the Mitra Pass).
+  4. `🔥 Streak Flames` (Customize the streak fire symbol: Classic Orange, Blue Plasma Flame, Cursed Purple Fire, Void Black Flame).
+  5. `🎨 UI Themes` (Unlock new app-wide M3E color palettes and custom launcher icons).
+- Every item card uses M3E pastel/tonal styling with an organic watermark blob, price in `🪙 Sikka`, and `Buy / Equip` state persistence.
+
+===========================================================================
+11. PAGE 9: `MITRA PASS` 3D CARD, RANKS & DRAGGABLE SETTINGS (`/profile`) — DOCK TAB 5
+===========================================================================
+- 1. INTERACTIVE 3D STUDENT CARD (`MITRA PASS` — Exact Physics & Sketch Layout):
+  * Physics (Like Reference Video): Reacts smoothly to touch/mouse drag and tilt (`rotateX`, `rotateY` 3D perspective with a dynamic moving specular glare overlay). Tapping the card flips it 180° in 3D space. Tapping the avatar opens the quick Upper-Body Wardrobe switcher.
+  * Colors: Styled dynamically using the active M3E theme aura gradient (NEVER use raw MS-Paint sketch colors; use premium theme gradients).
+  * FRONT SIDE EXACT POSITIONAL LAYOUT (Strictly matching user's architectural sketch):
+    - **Top-Left:** Card Brand Title: **`MITRA PASS`** (with subtle micro-tag `STUDENT PILOT ID`).
+    - **Top-Right:** **`Level & Rank Name`** (e.g., `LV 12 • ACE DOMINATOR`) on the top line, with the **Custom Rank Tier Crest/Badge** positioned directly underneath it on the right.
+    - **Center-Left:** Large circular **Customizable Upper-Body Avatar** wrapped in the equipped **Avatar Ring** from the Bazaar.
+    - **Center-Right (3 Stacked Rows next to Avatar):**
+      * Row 1: **`Username`** (bold, high contrast, with optional toggle to preview how Friends see `Real Name`).
+      * Row 2 (Left): **`Codename`** pill (e.g., `lemon-ball`).
+      * Row 2 (Right, beside Codename): **`⚛️ Urja Earned`** badge (e.g., `⚛️ 1,450 Urja`).
+    - **Bottom-Left:** **`School Name • Class 10`** (dynamically reflects selected Class 9/10/11/12 & School).
+    - **Bottom-Right:** **`Current Days Streak`** counter paired with an **Animated Fire Symbol (`🔥`)** that visually scales up, animates faster, and intensifies its glow the higher the streak gets!
+  * BACK SIDE LAYOUT (No Signature Pad — Customizable Ambition & Holo Deck):
+    - Displays editable **Life Goal**, **Dream College & Target Branch** (e.g., `LDCE Ahmedabad • Robotics`), and **Core Interests** pills.
+    - Features customizable **Holo-Stickers, Foil Borders, and Card Skins** unlocked from the `Bazaar`.
+- 2. IDENTITY & 2x2 M3E ANALYTICS QUAD-GRID:
+  * Below the card: Quick input to update Codename/Alias + `Secure Identity` pill button.
+  * 2x2 Asymmetrical Pastel/Tonal Grid:
+    - Block 1 (Pink): `Weak Zones Fixed`
+    - Block 2 (Green): `Checkpoints Cleared`
+    - Block 3 (Amber): `⚛️ Total Urja Earned`
+    - Block 4 (Purple): `Current Battle Royale Rank Tier`
+- 3. BATTLE ROYALE RANK TIERS & 17 SCALLOPED BADGE CAROUSEL:
+  * Horizontal progression track styled like Free Fire / BGMI Rank Tiers: `Bronze` → `Silver` → `Gold` → `Platinum` → `Diamond` → `Crown` → `Ace` → `Grandmaster / Conqueror` (driven by `⚛️ Urja`).
+  * Below it: `Badge Collection (3 of 17 unlocked →)` horizontal carousel of 12-point scalloped shield badges.
+- 4. DRAGGABLE "EVERYTHING ELSE" MASONRY SETTINGS HUB ("Long-press or drag a card to move it"):
+  * Replicate the exact Orion Store Settings Masonry Grid with organic corner blobs and reorderable card slots (allow users to tap Up/Down or Drag to reorder cards):
+    - **Full-Width Slate-Blue Card (`AI Question Packs`):** `0 active · 4 CBSE/GSEB chapter packs cached locally`.
+    - **Double-Height Lavender Card (`Look & Feel`):** `Google Sans Flex / Space Grotesk`, Light/Dark/OLED selector, and circular color theme dots.
+    - **Square Sky-Blue Card (`Multi-AI Router & Network`):** Manage personal Gemini / Groq API keys for zero-cost JIT question generation + Wi-Fi rules.
+    - **Square Beige Card (`Storage & Dexie Cache`):** View local offline storage footprint & 1-tap cache cleanup.
+    - **Full-Width Green Card (`Mitra Xtra`):** Developer & power toggles including **"Test WhatsApp-Style Blank Update Gate"**, Class 9/10/11/12 quick switcher, and Checkpoint timer speed toggle.
+    - **Bottom 2-Line Square Cards (`Backup` & `Interface`):** Pink `Backup` card (1-Tap `.studymitra` JSON Export/Import & Google Drive Sync) + Mint `Interface` card (Floating Dock & Motion settings).

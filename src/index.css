@@ -1,0 +1,55 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-heading: 'Space Grotesk', system-ui, sans-serif;
+    --font-sans: 'Plus Jakarta Sans', system-ui, sans-serif;
+  }
+  
+  body {
+    font-family: var(--font-sans);
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+  }
+
+  h1, h2, h3, h4, .font-heading {
+    font-family: var(--font-heading);
+  }
+}
+
+/* 3D card perspective */
+.perspective-1000 {
+  perspective: 1000px;
+}
+.transform-style-3d {
+  transform-style: preserve-3d;
+}
+.backface-hidden {
+  backface-visibility: hidden;
+}
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+/* Scalloped badge mask or outline helper */
+.scalloped-badge {
+  clip-path: polygon(
+    50% 0%, 63% 10%, 78% 7%, 86% 20%, 98% 24%, 100% 38%,
+    100% 50%, 100% 62%, 98% 76%, 86% 80%, 78% 93%, 63% 90%,
+    50% 100%, 37% 90%, 22% 93%, 14% 80%, 2% 76%, 0% 62%,
+    0% 50%, 0% 38%, 2% 24%, 14% 20%, 22% 7%, 37% 10%
+  );
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(150, 150, 150, 0.25);
+  border-radius: 9999px;
+}

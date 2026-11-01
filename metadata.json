@@ -1,0 +1,6 @@
+{
+  "name": "StudyMitra",
+  "description": "Mobile-first CBSE & GSEB Class 9-12 learning companion with M3 Expressive Bento UI, 3D Mitra Pass, Checkpoint Engine, and P2P Friends Zone.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
